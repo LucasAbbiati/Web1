@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <section class="layout-content" layout:fragment="corpo">
+
+        <div class="container" id="listagem" align="center">
+            <div class="container" id="listagem" >
+                <div class="navbar-header">
+                    <div style="right: 20px; position: absolute">
+                        <a th:href="@{''(lang=pt)}"><img alt=""
+                            th:src="@{/image/Brasil.gif}" style="width: 30px;" /></a> <a
+                            th:href="@{''(lang=en)}"><img alt=""
+                            th:src="@{/image/EUA.gif}" style="width: 30px;" /></a>
+            </div>
+            <h2><span th:text="#{profissional.lista.label}"></h2>
+            <div class="table-responsive">
+                <table class="table table-striped" border="1">
+					<thead>
+                        <tr>
+                            <th th:text="#{profissional.email.label}"></th>
+                            <th th:text="#{profissional.nome.label}"></th>
+                            <th th:text="#{profissional.cpf.label}"></th>
+                            <th th:text="#{profissional.telefone.label}"></th>
+                            <th th:text="#{profissional.genero.label}"></th>
+                            <th th:text="#{profissional.dataNasc.label}"></th>
+                            <th th:text="#{acao.label}"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="profissional : ${profissionais}">
+                            <td th:text="${profissional.email}"></td>
+                            <td th:text="${profissional.nome}"></td>
+                            <td th:text="${profissional.cpf}"></td>
+                            <td th:text="${profissional.telefone}"></td>
+                            <td th:text="${profissional.genero}"></td>
+                            <td th:text="${profissional.dataNasc}"></td>
+                            <td>
+                                <a class="btn btn-info btn-sm" th:href="@{/profissionais/editar/{id}(id=${profissional.id})}" role="button"> 
+                                    <span class="oi oi-brush" th:text="#{link.editar.label}" aria-hidden="true"></span>
+                                </a>
+                                <a class="btn btn-danger btn-sm" th:href="@{/profissionais/excluir/{id}(id=${profissional.id})}"
+                                    role="button" onclick="return confirm('Tem certeza disso?');">
+                                    <span class="oi oi-brush" th:text="#{link.excluir.label}" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <a class="btn btn-primary mb-2" type="button"
+        th:href="@{/admin}"><span th:text="#{previous.message}"></span></a>
+</body>
+</html>
