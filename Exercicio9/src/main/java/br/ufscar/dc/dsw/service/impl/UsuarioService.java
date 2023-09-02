@@ -1,4 +1,4 @@
-package java.br.ufscar.dc.dsw.service.impl;
+package br.ufscar.dc.dsw.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

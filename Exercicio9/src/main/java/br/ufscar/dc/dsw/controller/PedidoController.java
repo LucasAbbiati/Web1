@@ -21,7 +21,6 @@ import br.ufscar.dc.dsw.domain.Pedido;
 import br.ufscar.dc.dsw.domain.Prato;
 import br.ufscar.dc.dsw.domain.Usuario;
 import br.ufscar.dc.dsw.security.UsuarioDetails;
-import br.ufscar.dc.dsw.service.impl.PratoService;
 import br.ufscar.dc.dsw.service.spec.IPedidoService;
 import br.ufscar.dc.dsw.service.spec.IPratoService;
 
